@@ -103,7 +103,7 @@ module.exports = function (fn) {
     }
 
     // window = {}; => https://github.com/borisirota/webworkify-webpack/issues/1
-    var src = 'window = {};\n'
+    var src = 'window = window || {};\n'
         + 'var fn = (' + webpackBootstrapFunc.toString().replace('entryModule', key) + ')(['
         + moduleWrapperStrings.join(',')
         + ']);\n'
